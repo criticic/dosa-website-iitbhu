@@ -182,7 +182,7 @@ const Navbar = () => {
                 </Link>
                 <div>
                   <Link to="/">
-                    <h1 className="text-lg md:text-xl font-bold hover:text-yellow-200">Dean, Student's Affairs</h1>
+                    <h1 className="text-lg md:text-xl font-bold hover:text-yellow-200">Dean, Students' Affairs</h1>
                     <p className="text-xs md:text-sm">Indian Institute of Technology (BHU) Varanasi</p>
                   </Link>
                 </div>
