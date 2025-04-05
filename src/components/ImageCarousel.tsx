@@ -44,7 +44,7 @@ const ImageCarousel = ({
 
   const aspectRatioClass = 
     aspectRatio === 'square' ? 'aspect-square' : 
-    aspectRatio === 'banner' ? 'aspect-[21/9]' : 
+    aspectRatio === 'banner' ? 'aspect-[21/9]' :
     'aspect-video';
 
   const handleUserInteraction = useCallback(() => {

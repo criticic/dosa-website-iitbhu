@@ -8,11 +8,10 @@ const councilImages = [
   'https://placehold.co/800x450/723261/white?text=Science+Technology+Council+Image+3',
 ];
 
-const festImages = [
-  'https://placehold.co/800x450/97437f/white?text=Technex+Image+1',
-  'https://placehold.co/800x450/833a6f/white?text=Technex+Image+2',
-  'https://placehold.co/800x450/723261/white?text=Technex+Image+3',
-];
+const totalFestImages = 30;
+const festImages = Array.from({ length: totalFestImages }, (_, index) => {
+  return `/fest-images/technex25_images/technex${index + 1}.jpg`;
+});
 
 const positionHolders: PositionHolder[] = [
     {

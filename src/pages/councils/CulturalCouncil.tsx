@@ -8,11 +8,10 @@ const councilImages = [
   'https://placehold.co/800x450/723261/white?text=Cultural+Council+Image+3',
 ];
 
-const festImages = [
-  'https://placehold.co/800x450/97437f/white?text=Kashiyatra+Image+1',
-  'https://placehold.co/800x450/833a6f/white?text=Kashiyatra+Image+2',
-  'https://placehold.co/800x450/723261/white?text=Kashiyatra+Image+3',
-];
+const totalFestImages = 29;
+const festImages = Array.from({ length: totalFestImages }, (_, index) => {
+  return `/fest-images/ky25_images/ky${index + 1}.jpg`;
+});
 
 const positionHolders: PositionHolder[] = [
   {

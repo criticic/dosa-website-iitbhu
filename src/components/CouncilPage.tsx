@@ -18,12 +18,14 @@ export interface CouncilPageProps {
   councilName: string;
   councilSlug: string;
   councilImages: string[];
+  councilImageAspectRatio?: 'square' | 'video' | 'banner';
   aboutText: string;
   positionHolders: PositionHolder[];
   achievements: string[];
   clubs: Club[];
   festName?: string;
   festImages?: string[];
+  festImageAspectRatio?: 'square' | 'video' | 'banner';
   festText?: string;
 }
 
@@ -31,18 +33,20 @@ const CouncilPage: React.FC<CouncilPageProps> = ({
   councilName,
   councilSlug,
   councilImages,
+  councilImageAspectRatio = 'banner',
   aboutText,
   positionHolders,
   achievements,
   clubs,
   festName,
   festImages = [],
+  festImageAspectRatio = "banner",
   festText = '',
 }) => {
   return (
     <div className="space-y-8">
       {/* Main Carousel */}
-      <ImageCarousel images={councilImages} aspectRatio="banner" />
+      <ImageCarousel images={councilImages} aspectRatio={councilImageAspectRatio} />
       
       {/* About Council Section */}
       <section className="bg-white p-6 rounded-lg shadow-md">
@@ -110,7 +114,7 @@ const CouncilPage: React.FC<CouncilPageProps> = ({
           </h2>
           
           <div className="mb-6">
-            <ImageCarousel images={festImages} />
+            <ImageCarousel images={festImages} aspectRatio={festImageAspectRatio}/>
           </div>
           
           <p className="text-gray-600 whitespace-pre-line">

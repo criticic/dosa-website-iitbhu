@@ -8,11 +8,10 @@ const councilImages = [
   'https://placehold.co/800x450/723261/white?text=Film+Media+Council+Image+3',
 ];
 
-const festImages = [
-  'https://placehold.co/800x450/97437f/white?text=FMC+Weekend+Image+1',
-  'https://placehold.co/800x450/833a6f/white?text=FMC+Weekend+Image+2',
-  'https://placehold.co/800x450/723261/white?text=FMC+Weekend+Image+3',
-];
+const totalFestImages = 10;
+const festImages = Array.from({ length: totalFestImages }, (_, index) => {
+  return `/fest-images/fmcw24_images/fmcw${index + 1}.jpg`;
+});
 
 const positionHolders: PositionHolder[] = [
     {
