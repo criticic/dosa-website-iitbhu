@@ -3,6 +3,7 @@
 import ImageCarousel from './ImageCarousel';
 import PositionHolderCard from './PositionHolderCard';
 import { ParliamentContent } from '@/lib/types/content';
+import { marked } from 'marked';
 
 interface ParliamentPageProps {
   content: ParliamentContent;
@@ -31,7 +32,7 @@ export default function ParliamentPage({ content, mdxContent }: ParliamentPagePr
         </h2>
         <div className="text-gray-600 prose prose-gray max-w-none">
           {mdxContent ? (
-            <div dangerouslySetInnerHTML={{ __html: mdxContent.replace(/\n/g, '<br />') }} />
+            <div dangerouslySetInnerHTML={{ __html: marked(mdxContent) }} />
           ) : (
             <p className="mb-4">{content.aboutText}</p>
           )}

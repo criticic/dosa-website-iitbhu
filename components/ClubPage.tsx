@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ImageCarousel from './ImageCarousel';
 import PositionHolderCard from './PositionHolderCard';
 import { ClubContent } from '@/lib/types/content';
+import { marked } from 'marked';
 
 interface ClubPageProps {
   content: ClubContent;
@@ -56,7 +57,7 @@ export default function ClubPage({ content, mdxContent }: ClubPageProps) {
         </h2>
         <div className="text-gray-600 prose prose-gray max-w-none">
           {mdxContent ? (
-            <div dangerouslySetInnerHTML={{ __html: mdxContent.replace(/\n/g, '<br />') }} />
+            <div dangerouslySetInnerHTML={{ __html: marked(mdxContent) }} />
           ) : (
             <p>{content.aboutText}</p>
           )}

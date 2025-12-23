@@ -5,6 +5,7 @@ import ImageCarousel from './ImageCarousel';
 import PositionHolderCard from './PositionHolderCard';
 import CounsellorCard from './CounsellorCard';
 import { CouncilContent } from '@/lib/types/content';
+import { marked } from 'marked';
 
 interface CouncilPageProps {
   content: CouncilContent;
@@ -39,7 +40,7 @@ export default function CouncilPage({ content, mdxContent }: CouncilPageProps) {
         </h2>
         <div className="text-gray-600 prose prose-gray max-w-none">
           {mdxContent ? (
-            <div dangerouslySetInnerHTML={{ __html: mdxContent.replace(/\n/g, '<br />') }} />
+            <div dangerouslySetInnerHTML={{ __html: marked(mdxContent) }} />
           ) : (
             <p>{content.aboutText}</p>
           )}

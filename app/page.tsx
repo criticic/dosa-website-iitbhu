@@ -3,6 +3,7 @@ import { getHomeContent } from '@/lib/content';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 function readMDXFileSync(filePath: string): { data: any; content: string } {
   const contentDirectory = path.join(process.cwd(), 'content');
@@ -15,16 +16,19 @@ export default function Home() {
   const content = getHomeContent();
   const { content: mdxContent } = readMDXFileSync('home.mdx');
 
+  // Parse markdown to HTML
+  const htmlContent = mdxContent ? marked(mdxContent) : '';
+
   return (
     <div className="space-y-8">
       {/* Hero Carousel */}
       <ImageCarousel images={content.heroImages || []} aspectRatio="banner" />
       
       {/* Welcome Section */}
-      {mdxContent && (
+      {htmlContent && (
         <section className="bg-white p-6 rounded-lg shadow-md">
           <div className="prose prose-gray max-w-none text-gray-600">
-            <div dangerouslySetInnerHTML={{ __html: mdxContent.replace(/\n/g, '<br />') }} />
+            <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
           </div>
         </section>
       )}
