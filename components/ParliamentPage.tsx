@@ -19,9 +19,6 @@ export default function ParliamentPage({ content, mdxContent }: ParliamentPagePr
     otherParliamentarians = [],
   } = content;
 
-  // Get leadership member names to filter them out from committees
-  const leadershipNames = new Set(leadership.map(l => l.name.toLowerCase()));
-
   return (
     <div className="space-y-8">
       {/* Main Carousel */}
@@ -57,12 +54,10 @@ export default function ParliamentPage({ content, mdxContent }: ParliamentPagePr
       
       {/* Committees */}
       {committees.map((committee, index) => {
-        // Filter out leadership members from committee members
-        const filteredMembers = committee.members.filter(
-          member => !leadershipNames.has(member.name.toLowerCase())
-        );
+        // Skip Executive Body since it's redundant with the Leadership section
+        if (committee.name.toLowerCase() === 'executive body') return null;
 
-        if (filteredMembers.length === 0) return null;
+        if (committee.members.length === 0) return null;
 
         return (
           <section key={index} className="bg-white p-6 rounded-lg shadow-md">
@@ -85,7 +80,7 @@ export default function ParliamentPage({ content, mdxContent }: ParliamentPagePr
               </p>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredMembers.map((member, memberIndex) => (
+              {committee.members.map((member, memberIndex) => (
                 <PositionHolderCard
                   key={memberIndex}
                   holder={{

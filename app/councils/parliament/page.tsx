@@ -4,6 +4,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+// Force dynamic rendering to ensure content updates are reflected
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 function readMDXFileSync(filePath: string): { data: any; content: string } {
   const contentDirectory = path.join(process.cwd(), 'content');
   const fullPath = path.join(contentDirectory, filePath);
