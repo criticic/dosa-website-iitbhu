@@ -36,7 +36,7 @@ export default function GalleryPage() {
           Gallery
         </h2>
         <div className="text-sm text-gray-600 mb-4">
-          Showing {images.length} image{images.length !== 1 ? 's' : ''})
+          Showing {images.length} image{images.length !== 1 ? 's' : ''}
         </div>
         <GalleryGrid images={images} />
       </section>
