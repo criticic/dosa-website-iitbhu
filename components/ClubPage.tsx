@@ -99,20 +99,22 @@ export default function ClubPage({ content, mdxContent }: ClubPageProps) {
       </section>
       
       {/* Event Section - Only show if eventName is provided */}
-      {eventName && eventImages.length > 0 && (
+      {eventName && (
         <section className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-[#97437f] pb-2">
             {eventName}
           </h2>
           
-          <div className="mb-6">
-            <ImageCarousel images={eventImages} />
-          </div>
+          {eventImages.length > 0 && (
+            <div className="mb-6">
+              <ImageCarousel images={eventImages} />
+            </div>
+          )}
           
           {eventText && (
-            <p className="text-gray-600 whitespace-pre-line">
-              {eventText}
-            </p>
+            <div className="text-gray-600 prose prose-gray max-w-none">
+              <div dangerouslySetInnerHTML={{ __html: marked(eventText) }} />
+            </div>
           )}
         </section>
       )}
