@@ -20,11 +20,11 @@ export default function PeoplePage({ content }: PeoplePageProps) {
   const { dean, associateDean, assistantRegistrar, staff } = content;
 
   const tabs: Tab[] = [
-    { id: 'dean', label: 'Dean (Student\'s Affairs)', count: dean.length },
-    { id: 'associateDean', label: 'Associate Dean (Students Affairs)', count: associateDean.length },
-    { id: 'assistantRegistrar', label: 'Assistant Registrar', count: assistantRegistrar.length },
-    { id: 'staff', label: 'Staff', count: staff.length },
-  ].filter(tab => tab.count > 0); // Only show tabs with content
+    { id: 'dean' as TabType, label: 'Dean (Student\'s Affairs)', count: dean.length },
+    { id: 'associateDean' as TabType, label: 'Associate Dean (Students Affairs)', count: associateDean.length },
+    { id: 'assistantRegistrar' as TabType, label: 'Assistant Registrar', count: assistantRegistrar.length },
+    { id: 'staff' as TabType, label: 'Staff', count: staff.length },
+  ].filter(tab => tab.count > 0) as Tab[]; // Only show tabs with content
 
   const [activeTab, setActiveTab] = useState<TabType>(
     tabs.length > 0 ? tabs[0].id : 'dean'
