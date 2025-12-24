@@ -45,7 +45,17 @@ export default function ParliamentPage({ content, mdxContent }: ParliamentPagePr
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-[#97437f] pb-2">
             Leadership
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+          {content.leadershipEmail && (
+            <div className="text-center mb-4">
+              <a 
+                href={`mailto:${content.leadershipEmail}`}
+                className="text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors"
+              >
+                {content.leadershipEmail}
+              </a>
+            </div>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {leadership.map((leader, index) => (
               <PositionHolderCard key={index} holder={leader} isLeadership={true} />
             ))}

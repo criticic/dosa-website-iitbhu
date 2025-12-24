@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaEnvelope } from 'react-icons/fa';
 import { Counsellor } from '@/lib/types/content';
 
 interface CounsellorCardProps {
@@ -38,7 +38,16 @@ export default function CounsellorCard({ counsellor }: CounsellorCardProps) {
       <p className="text-gray-700 text-center mb-1">{name}</p>
       
       {/* Email */}
-      <p className="text-sm text-gray-500 text-center">{email}</p>
+      {email && (
+        <a 
+          href={`mailto:${email}`}
+          className="flex items-center justify-center gap-1 text-sm text-gray-600 hover:text-[#97437f] transition-colors"
+          aria-label={`Email ${name} at ${email}`}
+        >
+          <FaEnvelope className="w-3 h-3 flex-shrink-0" />
+          <span className="truncate" title={email}>{email}</span>
+        </a>
+      )}
     </div>
   );
 }

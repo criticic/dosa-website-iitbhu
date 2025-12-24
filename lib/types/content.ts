@@ -39,7 +39,9 @@ export interface CouncilContent {
   councilImages: string[];
   councilImageAspectRatio?: 'square' | 'video' | 'banner';
   counsellors?: Counsellor[];
+  counsellorsEmail?: string; // Overall email for counsellors section
   positionHolders: PositionHolder[];
+  positionHoldersEmail?: string; // Overall email for position holders section
   clubs: Club[];
   achievements: string[];
   festName?: string;
@@ -55,6 +57,7 @@ export interface ClubContent {
   clubImages: string[];
   aboutText?: string;
   positionHolders: PositionHolder[];
+  positionHoldersEmail?: string; // Overall email for position holders section
   achievements: string[];
   eventName?: string;
   eventImages?: string[];
@@ -67,6 +70,7 @@ export interface ParliamentContent {
   parliamentImages: string[];
   parliamentImageAspectRatio?: 'square' | 'video' | 'banner';
   leadership: PositionHolder[];
+  leadershipEmail?: string; // Overall email for leadership section
   committees: Committee[];
   aboutText?: string;
   initiatives?: Array<{
@@ -92,5 +96,25 @@ export interface HomeContent {
 export interface ImageCarouselConfig {
   images: string[];
   aspectRatio?: 'square' | 'video' | 'banner';
+}
+
+export interface Person {
+  name: string;
+  title?: string;
+  designation?: string;
+  department?: string;
+  email?: string;
+  phone?: string;
+  fax?: string;
+  address?: string;
+  sections?: string[];
+  photo?: string;
+}
+
+export interface PeopleContent {
+  dean: Person[];
+  associateDean: Person[];
+  assistantRegistrar: Person[];
+  staff: Person[];
 }
 

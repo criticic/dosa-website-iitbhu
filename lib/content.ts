@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { CouncilContent, ClubContent, ParliamentContent, HomeContent } from './types/content';
+import { CouncilContent, ClubContent, ParliamentContent, HomeContent, PeopleContent } from './types/content';
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
@@ -84,6 +84,12 @@ export function getAllCouncils(): string[] {
 export function getPageContent(pageName: string): { data: any; content: string } {
   const { data, content } = readMDXFile(`${pageName}.mdx`);
   return { data, content };
+}
+
+// Get people content
+export function getPeopleContent(): PeopleContent {
+  const { data } = readMDXFile('people.mdx');
+  return data as PeopleContent;
 }
 
 

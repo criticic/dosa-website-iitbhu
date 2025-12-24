@@ -53,6 +53,16 @@ export default function CouncilPage({ content, mdxContent }: CouncilPageProps) {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-[#97437f] pb-2">
             Counsellors
           </h2>
+          {content.counsellorsEmail && (
+            <div className="text-center mb-4">
+              <a 
+                href={`mailto:${content.counsellorsEmail}`}
+                className="text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors"
+              >
+                {content.counsellorsEmail}
+              </a>
+            </div>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {counsellors.map((counsellor, index) => (
               <CounsellorCard key={index} counsellor={counsellor} />
@@ -66,6 +76,16 @@ export default function CouncilPage({ content, mdxContent }: CouncilPageProps) {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-[#97437f] pb-2">
           Position Holders
         </h2>
+        {content.positionHoldersEmail && (
+          <div className="text-center mb-4">
+            <a 
+              href={`mailto:${content.positionHoldersEmail}`}
+              className="text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors"
+            >
+              {content.positionHoldersEmail}
+            </a>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {positionHolders.map((holder, index) => (
             <PositionHolderCard key={index} holder={holder} />

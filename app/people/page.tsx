@@ -1,16 +1,10 @@
-import { getPageContent } from '@/lib/content';
-import { marked } from 'marked';
+import { getPeopleContent } from '@/lib/content';
+import PeoplePageComponent from '@/components/PeoplePage';
 
 export default function PeoplePage() {
-  const { content } = getPageContent('people');
+  const content = getPeopleContent();
 
-  return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-      <div className="prose prose-gray max-w-none">
-        <div dangerouslySetInnerHTML={{ __html: marked(content) }} />
-      </div>
-    </div>
-  );
+  return <PeoplePageComponent content={content} />;
 }
 
 

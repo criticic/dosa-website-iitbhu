@@ -7,7 +7,7 @@ import { PiCaretDown, PiCaretUp } from 'react-icons/pi';
 
 // Council submenu items
 const councilItems = [
-  { label: "Student's Body", path: '/councils/parliament' },
+  { label: "Students' Parliament", path: '/councils/parliament' },
   { label: 'Cultural Council', path: '/councils/cultural' },
   { label: 'Film and Media Council', path: '/councils/fmc' },
   { label: 'Games and Sports Council', path: '/councils/gnsc' },
