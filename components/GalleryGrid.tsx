@@ -25,18 +25,22 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer group"
+            className="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all cursor-pointer group bg-gray-100"
             onClick={() => setSelectedImage(image.path)}
           >
-            <Image
+            <img
               src={image.path}
               alt={`Gallery image ${index + 1}`}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              unoptimized={image.path.startsWith('http')}
+              className="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              style={{ 
+                minWidth: '100%',
+                minHeight: '100%',
+                display: 'block'
+              }}
+              loading={index < 12 ? 'eager' : 'lazy'}
+              decoding="async"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors pointer-events-none z-10" />
           </div>
         ))}
       </div>
@@ -62,7 +66,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
                 width={1200}
                 height={800}
                 className="object-contain max-w-full max-h-full"
-                unoptimized={selectedImage.startsWith('http')}
+                unoptimized={true}
               />
             </div>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
