@@ -72,7 +72,7 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       className="font-semibold text-yellow-200 hover:text-yellow-100 hover:underline transition-colors"
                     >
-                      Jayesh Krishnan Puri
+                      Jayesh Krishan Puri
                     </a>
                   </div>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45 border-r border-b border-gray-700"></div>
